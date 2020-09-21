@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="\themes\yilia\source\img\avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -101,7 +101,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="\themes\yilia\source\img\avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -151,6 +151,237 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-1234" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/18/1234/">1234</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/18/1234/" class="archive-article-date">
+  	<time datetime="2020-09-18T09:29:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/18/1234/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-回溯算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">猴子都能看懂的回溯算法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-09-17T10:18:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="经典例题："><a href="#经典例题：" class="headerlink" title="经典例题："></a>经典例题：</h2><p>给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。</p>
+<p>candidates 中的数字可以无限制重复被选取。</p>
+<p>说明：</p>
+<p>所有数字（包括 target）都是正整数。<br>解集不能包含重复的组合。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：candidates &#x3D; [2,3,6,7], target &#x3D; 7,</span><br><span class="line">所求解集为：</span><br><span class="line">[</span><br><span class="line">  [7],</span><br><span class="line">  [2,2,3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum">https://leetcode-cn.com/problems/combination-sum</a></p>
+<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>面对这种需要进行大量无明显规律的组合一般的循环遍历的效果极差，</p>
+<p>这类问题我们可以使用for循环+递归实现深度优先遍历</p>
+<p>下面用图示展示回溯和剪枝的整个过程</p>
+<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE1.jpg" alt="截图1"></p>
+<p>利用减法再进入递归，当target被减小于0时该路径结束，因为数组经过了排序，最小的元素都无法满足，之后的3，6，7不必在尝试，直接返回上一级递归，这就是剪枝的操作。</p>
+<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE2.png" alt="截图2"></p>
+<p>返回上一级后继续进行for循环的遍历，3被放到该路径中最后一位，target恰好为0，得到了第一个解[2,2,3],同样因为剪枝，6，7不必再尝试。</p>
+<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE3.png" alt="截图3"></p>
+<p>返回上一级后target被减后仍大于0，继续进入循环，但为避免重复解出现，之后的元素只能是3以后的元素，相减后小于0，返回上一级递归</p>
+<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE4.png" alt="截图4"></p>
+<p>将下一个元素减后target小于0.返回上一级递归</p>
+<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE5.png" alt="截图5"></p>
+<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE6.png" alt="截图6"></p>
+<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE7.png" alt="截图7"></p>
+<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE8.png" alt="截图8"></p>
+<p>target等于0，获得第二个解</p>
+<p>至此，所有不重复的路径全部走完，整个遍历结束。</p>
+<p>参考代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> target) &#123;</span><br><span class="line"></span><br><span class="line">​    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">​    Arrays.sort(candidates);</span><br><span class="line"></span><br><span class="line">​    backtrack(candidates, target, res, <span class="keyword">new</span> ArrayList&lt;Integer&gt;(), <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> target, List&lt;List&lt;Integer&gt;&gt; res, List&lt;Integer&gt; temp_list, <span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">​    <span class="comment">//target&lt;0返回上一级递归</span></span><br><span class="line"></span><br><span class="line">​    <span class="keyword">if</span>(target&lt;<span class="number">0</span>)<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">​    <span class="comment">//target=0将该路径添加到解中，返回上一级递归</span></span><br><span class="line"></span><br><span class="line">​    <span class="keyword">if</span>(target == <span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">​      res.add(<span class="keyword">new</span> ArrayList&lt;&gt;(temp_list));</span><br><span class="line"></span><br><span class="line">​      <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    <span class="comment">//循环数组元素，target&lt;0剪枝，不再循环下一个元素</span></span><br><span class="line"></span><br><span class="line">​    <span class="keyword">for</span>(<span class="keyword">int</span> start = i; start&lt;candidates.length; start++)&#123;</span><br><span class="line"></span><br><span class="line">​      <span class="keyword">if</span>(target&lt;<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">​      <span class="comment">//添加元素</span></span><br><span class="line"></span><br><span class="line">​      temp_list.add(candidates[start]);</span><br><span class="line"></span><br><span class="line">​      <span class="comment">//进入递归</span></span><br><span class="line"></span><br><span class="line">​      backtrack(candidates, target - candidates[start], res, temp_list, start);</span><br><span class="line"></span><br><span class="line">​      <span class="comment">//删除元素</span></span><br><span class="line"></span><br><span class="line">​      temp_list.remove(temp_list.size()-<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">week1</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-笔记1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/12/%E7%AC%94%E8%AE%B01/">笔记1</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/12/%E7%AC%94%E8%AE%B01/" class="archive-article-date">
+  	<time datetime="2020-09-12T11:44:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#流程控制笔记</p>
+<p>##接收用户输入<br>Scanner类<br>.next（） 不能接受空格<br>.nextline（） 可以接受空格<br>均返回String类型</p>
+<p>##退出多重循环<br>在循环前+ “标识符：”<br>Break 标识符；结束对应循环</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A:<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">		<span class="built_in">break</span>: A;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>##eclipse快速调整字体大小<br>Ctrl +“+/-“</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/12/%E7%AC%94%E8%AE%B01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-my-frist-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -398,6 +629,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">day1</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">week1</a>
               </li>
             
             <div class="clearfix"></div>
