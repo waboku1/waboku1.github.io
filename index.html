@@ -5,18 +5,18 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <link rel="dns-prefetch" href="//waboku1.github.io">
+  <title>Waboku的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:title" content="Waboku的博客">
+<meta property="og:url" content="index.html">
+<meta property="og:site_name" content="Waboku的博客">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Waboku">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Waboku的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="\themes\yilia\source\img\avatar.jpg" class="js-avatar">
+			<img src="\assets\blogImg\avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -55,7 +55,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -101,7 +101,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="\themes\yilia\source\img\avatar.jpg" class="js-avatar">
+				<img src="\assets\blogImg\avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -135,7 +135,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -152,27 +152,84 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-1234" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-多线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/18/1234/">1234</a>
+      <a class="article-title" href="2020/09/23/多线程/">猩猩都能看懂的多线程</a>
     </h1>
   
 
         
-        <a href="/2020/09/18/1234/" class="archive-article-date">
-  	<time datetime="2020-09-18T09:29:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-18</time>
+        <a href="2020/09/23/多线程/" class="archive-article-date">
+  	<time datetime="2020-09-23T11:54:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="线程与进程"><a href="#线程与进程" class="headerlink" title="线程与进程"></a>线程与进程</h2><p>进程</p>
+<ul>
+<li>指内存中运行的一个应用程序，每个进程都有属于自己独立的内存空间</li>
+</ul>
+<p>线程</p>
+<ul>
+<li><p>进程中的一个执行路径，各个线程间可以自由切换，同时执行</p>
+</li>
+<li><p>一个进程至少有一个线程</p>
+</li>
+</ul>
+<h2 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h2><p>分时调度</p>
+<ul>
+<li>所有线程依次使用cpu，平均分配每个线程占用时间</li>
+</ul>
+<p>抢占式调度</p>
+<ul>
+<li>优先让优先级高的线程使用cpu，优先度相同则随机选择一条线程</li>
+</ul>
+<h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>同步：排队执行，效率低，线程安全</p>
+<p>异步：同时执行，效率高，线程不安全</p>
+<h2 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h2><p>并发：指两个或多个事件在同一个时间段内发生<br>并行：指两个或多个事件在同一时刻发生（同时发生）</p>
+<h3 id="多线程可以提高cpu的使用效率，并不能提高运行速度"><a href="#多线程可以提高cpu的使用效率，并不能提高运行速度" class="headerlink" title="多线程可以提高cpu的使用效率，并不能提高运行速度"></a>多线程可以提高cpu的使用效率，并不能提高运行速度</h3><h1 id="三种多线程实现方式"><a href="#三种多线程实现方式" class="headerlink" title="三种多线程实现方式"></a>三种多线程实现方式</h1><h3 id="1-继承Thread类"><a href="#1-继承Thread类" class="headerlink" title="1.继承Thread类"></a>1.继承Thread类</h3><p>1）自定义一个类，继承java.lang包下的Thread类<br>2）重写run方法<br>3）将要在线程中执行的代码编写在run方法中<br>4）创建上面自定义类的对象<br>5）调用start方法启动线程</p>
+<p><img src="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B1.png" alt="多线程1"></p>
+<h2 id="2-实现Runnable接口"><a href="#2-实现Runnable接口" class="headerlink" title="2.实现Runnable接口"></a>2.实现Runnable接口</h2><p>1）自定义一个类实现java.lang包下的Runnable接口<br>2）重写run方法<br>3）将要在线程中执行的代码编写在run方法中<br>4）创建上面自定义类的对象<br>5）创建Thread对象并将上面自定义类的对象作为参数传递给Thread的构造方法<br>6）调用start方法启动线程</p>
+<p><img src="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B2.png" alt="多线程2"></p>
+<h2 id="3-实现Callable接口，使用线程池"><a href="#3-实现Callable接口，使用线程池" class="headerlink" title="3.实现Callable接口，使用线程池"></a>3.实现Callable接口，使用线程池</h2><p>1）自定义一个类实现java.util.concurrent包下的Callable接口<br>2）重写call方法<br>3）将要在线程中执行的代码编写在call方法中<br>4）创建ExecutorService线程池<br>5）将自定义类的对象放入线程池中<br>6）从线程池中获取线程及返回结果</p>
+<p><img src="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B3.png" alt="多线程3"></p>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><p>线程池是初始化一个多线程应用程序过程中创建一个<strong>线程集合</strong>，即一次创建多个线程，然后在需要执行新的任务时直接去这个线程集合中获取，而不是重新创建一个线程。任务执行结束后，线程放回到池子中等待下一次的分配。</p>
+<p><strong>线程池的作用</strong></p>
+<p>解决创建单个线程耗费时间和资源的问题。</p>
+<h3 id="多线程创建的三种方式对比"><a href="#多线程创建的三种方式对比" class="headerlink" title="多线程创建的三种方式对比"></a>多线程创建的三种方式对比</h3><ul>
+<li>继承Thread<ul>
+<li>优点:可以直接使用Thread类中的方法,代码简单</li>
+<li>缺点:继承Thread类之后就不能继承其他的类</li>
+</ul>
+</li>
+<li>实现Runnable接口<ul>
+<li>优点:即时自定义类已经有父类了也不受影响，因为可以实现多个接口</li>
+<li>缺点:在run方法内部需要获取到当前线程的Thread对象后才能使用Thread中的方法</li>
+</ul>
+</li>
+<li>实现Callable接口<ul>
+<li>优点：可以获取返回值，可以抛出异常</li>
+<li>缺点：代码编写较为复杂</li>
+</ul>
+</li>
+</ul>
+<h3 id="线程睡眠"><a href="#线程睡眠" class="headerlink" title="线程睡眠"></a>线程睡眠</h3><p>Thread中的sleep方法可以使当前线程睡眠，线程睡眠后，里面的任务不会执行，待睡眠时间过后会自动苏醒，从而继续执行任务。</p>
+<p>Thread中有两个重载的sleep方法<br>sleep(long millis)，指定睡眠毫秒数<br>sleep(long millis, int nanos)，第一个参数是毫秒，第二个参数是纳秒</p>
+<h3 id="使用synchronized将方法设置为同步"><a href="#使用synchronized将方法设置为同步" class="headerlink" title="使用synchronized将方法设置为同步"></a>使用synchronized将方法设置为同步</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">changeNum</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="synchronized同步代码块"><a href="#synchronized同步代码块" class="headerlink" title="synchronized同步代码块"></a>synchronized同步代码块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">synchronized(obj)&#123;</span><br><span class="line">&#x2F;&#x2F;异步运行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="显式锁"><a href="#显式锁" class="headerlink" title="显式锁"></a>显式锁</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//true为公平锁，false为非公平锁</span></span><br><span class="line">Lock l = <span class="keyword">new</span> ReentrantLock(<span class="keyword">true</span>);</span><br><span class="line">lock(); unlock();</span><br></pre></td></tr></table></figure>
+
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>在编写多线程代码时一定要注意避免死锁，发生死锁原因就是两个或多个线程都在等待对方释放锁导致.</p>
+
       
 
       
@@ -180,11 +237,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java核心类库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/18/1234/">展开全文 >></a>
+          <a class="article-more-a" href="2020/09/23/多线程/">展开全文 >></a>
         </p>
       
 
@@ -221,12 +289,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">猴子都能看懂的回溯算法</a>
+      <a class="article-title" href="2020/09/17/回溯算法/">猴子都能看懂的回溯算法</a>
     </h1>
   
 
         
-        <a href="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" class="archive-article-date">
+        <a href="2020/09/17/回溯算法/" class="archive-article-date">
   	<time datetime="2020-09-17T10:18:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
 </a>
         
@@ -245,18 +313,18 @@
 <h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>面对这种需要进行大量无明显规律的组合一般的循环遍历的效果极差，</p>
 <p>这类问题我们可以使用for循环+递归实现深度优先遍历</p>
 <p>下面用图示展示回溯和剪枝的整个过程</p>
-<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE1.jpg" alt="截图1"></p>
+<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE1.jpg" alt="截图1"></p>
 <p>利用减法再进入递归，当target被减小于0时该路径结束，因为数组经过了排序，最小的元素都无法满足，之后的3，6，7不必在尝试，直接返回上一级递归，这就是剪枝的操作。</p>
-<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE2.png" alt="截图2"></p>
+<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE2.png" alt="截图2"></p>
 <p>返回上一级后继续进行for循环的遍历，3被放到该路径中最后一位，target恰好为0，得到了第一个解[2,2,3],同样因为剪枝，6，7不必再尝试。</p>
-<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE3.png" alt="截图3"></p>
+<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE3.png" alt="截图3"></p>
 <p>返回上一级后target被减后仍大于0，继续进入循环，但为避免重复解出现，之后的元素只能是3以后的元素，相减后小于0，返回上一级递归</p>
-<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE4.png" alt="截图4"></p>
+<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE4.png" alt="截图4"></p>
 <p>将下一个元素减后target小于0.返回上一级递归</p>
-<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE5.png" alt="截图5"></p>
-<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE6.png" alt="截图6"></p>
-<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE7.png" alt="截图7"></p>
-<p><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE8.png" alt="截图8"></p>
+<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE5.png" alt="截图5"></p>
+<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE6.png" alt="截图6"></p>
+<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE7.png" alt="截图7"></p>
+<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE8.png" alt="截图8"></p>
 <p>target等于0，获得第二个解</p>
 <p>至此，所有不重复的路径全部走完，整个遍历结束。</p>
 <p>参考代码：</p>
@@ -285,75 +353,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-笔记1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/12/%E7%AC%94%E8%AE%B01/">笔记1</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/12/%E7%AC%94%E8%AE%B01/" class="archive-article-date">
-  	<time datetime="2020-09-12T11:44:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#流程控制笔记</p>
-<p>##接收用户输入<br>Scanner类<br>.next（） 不能接受空格<br>.nextline（） 可以接受空格<br>均返回String类型</p>
-<p>##退出多重循环<br>在循环前+ “标识符：”<br>Break 标识符；结束对应循环</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A:<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">		<span class="built_in">break</span>: A;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>##eclipse快速调整字体大小<br>Ctrl +“+/-“</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/12/%E7%AC%94%E8%AE%B01/">展开全文 >></a>
+          <a class="article-more-a" href="2020/09/17/回溯算法/">展开全文 >></a>
         </p>
       
 
@@ -390,12 +390,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/12/my-frist-blog/">my frist blog</a>
+      <a class="article-title" href="2020/09/12/my-frist-blog/">my frist blog</a>
     </h1>
   
 
         
-        <a href="/2020/09/12/my-frist-blog/" class="archive-article-date">
+        <a href="2020/09/12/my-frist-blog/" class="archive-article-date">
   	<time datetime="2020-09-12T03:10:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-12</time>
 </a>
         
@@ -430,7 +430,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/12/my-frist-blog/">展开全文 >></a>
+          <a class="article-more-a" href="2020/09/12/my-frist-blog/">展开全文 >></a>
         </p>
       
 
@@ -467,12 +467,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/12/hello-world/">Hello World</a>
+      <a class="article-title" href="2020/09/12/hello-world/">Hello World</a>
     </h1>
   
 
         
-        <a href="/2020/09/12/hello-world/" class="archive-article-date">
+        <a href="2020/09/12/hello-world/" class="archive-article-date">
   	<time datetime="2020-09-12T03:08:43.740Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-12</time>
 </a>
         
@@ -505,7 +505,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/12/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="2020/09/12/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -545,7 +545,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 John Doe
+    		&copy; 2020 Waboku
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -633,6 +633,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">week1</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java核心类库</a>
               </li>
             
             <div class="clearfix"></div>
