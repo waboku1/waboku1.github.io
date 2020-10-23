@@ -152,6 +152,208 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-XML与JSON笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2020/10/23/XML与JSON笔记/">XML与JSON笔记</a>
+    </h1>
+  
+
+        
+        <a href="2020/10/23/XML与JSON笔记/" class="archive-article-date">
+  	<time datetime="2020-10-23T09:11:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>可扩展标记语言（eXtensible Markup Language）。<br>特性:</p>
+<ol>
+<li>xml具有平台无关性, 是一门独立的标记语言.</li>
+<li>xml具有自我描述性</li>
+</ol>
+<h3 id="为什么学习XML？"><a href="#为什么学习XML？" class="headerlink" title="为什么学习XML？"></a>为什么学习XML？</h3><ol>
+<li>网络数据传输.<ol start="2">
+<li>数据存储</li>
+<li>配置文件 </li>
+</ol>
+</li>
+</ol>
+<h3 id="XML文件"><a href="#XML文件" class="headerlink" title="XML文件"></a>XML文件</h3><p>.XML文件是保存XML数据的一种方式<br>XML数据也可以以其他的方式存在（如在内存中构建XML数据）。<br>不要将XML语言狭隘的理解成XML文件。</p>
+<h3 id="XML语法格式"><a href="#XML语法格式" class="headerlink" title="XML语法格式"></a>XML语法格式</h3><p>案例:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">persons</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">person</span> <span class="attr">id</span>=<span class="string">&quot;10001&quot;</span> <span class="attr">groupid</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>李四<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">age</span>&gt;</span>18<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">person</span> <span class="attr">id</span>=<span class="string">&quot;10002&quot;</span> <span class="attr">groupid</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>李四<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">age</span>&gt;</span>20<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">persons</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>XML注释<br>注释不能写在文档文档声明前<br>注释不能嵌套注释<br>   格式:</p>
+<p>注释开始:  &lt;!–</p>
+<p>注释结束:  –&gt;</p>
+<font color="blue"> 
+
+<p>   注释开始:  <!--
+  注释结束:  --></p>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题 *"></a>面试题 *</h2><p><strong>问: Java中有几种XML解析方式 ? 分别是什么 ? 有什么样的优缺点 ?</strong><br>答: 四种.</p>
+<ol>
+<li><p><strong>SAX解析</strong><br> 解析方式是事件驱动机制 !<br> SAX解析器, 逐行读取XML文件解析 , 每当解析到一个标签的开始/结束/内容/属性时,触<br>发事件.<br> 我们可以编写程序在这些事件发生时, 进行相应的处理.<br> <strong>优点:</strong><br> 分析能够立即开始，而不是等待所有的数据被处理<br>   逐行加载,节省内存.有助于解析大于系统内存的文档<br>有时不必解析整个文档,它可以在某个条件得到满足时停止解析.<br> <strong>缺点:</strong></p>
+<ol>
+<li><p>单向解析，无法定位文档层次，无法同时访问同一文档的不同部分数据(因为逐<br>行解析, 当解析第n行是, 第n-1行已经被释放了, 无法在进行操作了).</p>
+<ol start="2">
+<li><p>无法得知事件发生时元素的层次, 只能自己维护节点的父/子关系.</p>
+</li>
+<li><p>只读解析方式, 无法修改XML文档的内容.</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><strong>DOM解析</strong><br>是用与平台和语言无关的方式表示XML文档的官方W3C标准，分析该结构通常需要加载整个<br>文档和内存中建立文档树模型.程序员可以通过操作文档树, 来完成数据的获取 修改 删除等.<br> <strong>优点:</strong><br>   文档在内存中加载, 允许对数据和结构做出更改.<br>访问是双向的，可以在任何时候在树中双向解析数据。<br> <strong>缺点:</strong><br>   文档全部加载在内存中 , 消耗资源大.</li>
+</ol>
+<ol start="3">
+<li><strong>JDOM解析</strong><br> 目的是成为Java特定文档模型，它简化与XML的交互并且比使用DOM实现更快。由于是第一<br> 个Java特定模型，JDOM一直得到大力推广和促进。<br> JDOM文档声明其目的是“使用20%（或更少）的精力解决80%（或更多）Java/XML问题”<br> （根据学习曲线假定为20%）<br> <strong>优点:</strong><br> 使用具体类而不是接口，简化了DOM的API。<br> 大量使用了Java集合类，方便了Java开发人员。<br> <strong>缺点:</strong><br> DOM4J解析XML 掌握<br> 文档对象 Document<br> 元素对象 Element<br> 没有较好的灵活性。<br> 性能不是那么优异。</li>
+</ol>
+<ol start="4">
+<li><p><strong>DOM4J解析</strong><br> 它是JDOM的一种智能分支。它合并了许多超出基本XML文档表示的功能，包括集成的XPath<br> 支持、XML Schema支持以及用于大文档或流化文档的基于事件的处理。它还提供了构建文档表示的选项，<br> DOM4J是一个非常优秀的Java XML API，具有性能优异、功能强大和极端易用使用的特点，同时它也是一<br> 个开放源代码的软件。如今你可以看到越来越多的Java软件都在使用DOM4J来读写XML。<br> 目前许多开源项目中大量采用DOM4J , 例如:Hibernate</p>
+<p> <strong>DOM4J解析XML步骤:</strong></p>
+<ol>
+<li>引入jar文件 dom4j.jar</li>
+<li>创建一个指向XML文件的输入流<br> FileInputStream fis = new FileInputStream(“xml文件的地址”);</li>
+<li>创建一个XML读取工具对象<br> SAXReader sr = new SAXReader();</li>
+<li>使用读取工具对象, 读取XML文档的输入流 , 并得到文档对象<br> Document doc = sr.read(fis);  </li>
+<li>通过文档对象, 获取XML文档中的根元素对象<br> Element root = doc.getRootElement();</li>
+</ol>
+</li>
+</ol>
+</font>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java核心类库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2020/10/23/XML与JSON笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2020/09/29/JSON/">JSON解析与语法</a>
+    </h1>
+  
+
+        
+        <a href="2020/09/29/JSON/" class="archive-article-date">
+  	<time datetime="2020-09-29T10:46:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java核心类库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2020/09/29/JSON/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-多线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -196,6 +398,8 @@
 <h2 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h2><p>并发：指两个或多个事件在同一个时间段内发生<br>并行：指两个或多个事件在同一时刻发生（同时发生）</p>
 <h3 id="多线程可以提高cpu的使用效率，并不能提高运行速度"><a href="#多线程可以提高cpu的使用效率，并不能提高运行速度" class="headerlink" title="多线程可以提高cpu的使用效率，并不能提高运行速度"></a>多线程可以提高cpu的使用效率，并不能提高运行速度</h3><h1 id="三种多线程实现方式"><a href="#三种多线程实现方式" class="headerlink" title="三种多线程实现方式"></a>三种多线程实现方式</h1><h3 id="1-继承Thread类"><a href="#1-继承Thread类" class="headerlink" title="1.继承Thread类"></a>1.继承Thread类</h3><p>1）自定义一个类，继承java.lang包下的Thread类<br>2）重写run方法<br>3）将要在线程中执行的代码编写在run方法中<br>4）创建上面自定义类的对象<br>5）调用start方法启动线程</p>
 <p><img src="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B1.png" alt="多线程1"></p>
+<p><img src="/多线程/_posts%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B1.png" alt="多线程1"></p>
+<p><img src="/多线程/Users\admin\blog\source_posts\多线程\多线程1.png" alt="多线程1"></p>
 <h2 id="2-实现Runnable接口"><a href="#2-实现Runnable接口" class="headerlink" title="2.实现Runnable接口"></a>2.实现Runnable接口</h2><p>1）自定义一个类实现java.lang包下的Runnable接口<br>2）重写run方法<br>3）将要在线程中执行的代码编写在run方法中<br>4）创建上面自定义类的对象<br>5）创建Thread对象并将上面自定义类的对象作为参数传递给Thread的构造方法<br>6）调用start方法启动线程</p>
 <p><img src="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B2.png" alt="多线程2"></p>
 <h2 id="3-实现Callable接口，使用线程池"><a href="#3-实现Callable接口，使用线程池" class="headerlink" title="3.实现Callable接口，使用线程池"></a>3.实现Callable接口，使用线程池</h2><p>1）自定义一个类实现java.util.concurrent包下的Callable接口<br>2）重写call方法<br>3）将要在线程中执行的代码编写在call方法中<br>4）创建ExecutorService线程池<br>5）将自定义类的对象放入线程池中<br>6）从线程池中获取线程及返回结果</p>
@@ -637,6 +841,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java核心类库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">java核心类库</a>
               </li>
             
             <div class="clearfix"></div>

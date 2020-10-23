@@ -16,10 +16,12 @@
 <meta property="og:description" content="线程与进程进程  指内存中运行的一个应用程序，每个进程都有属于自己独立的内存空间  线程  进程中的一个执行路径，各个线程间可以自由切换，同时执行  一个进程至少有一个线程   线程调度分时调度  所有线程依次使用cpu，平均分配每个线程占用时间  抢占式调度  优先让优先级高的线程使用cpu，优先度相同则随机选择一条线程  同步与异步同步：排队执行，效率低，线程安全 异步：同时执行，效率高，线程">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B1.png">
+<meta property="og:image" content="/多线程/_posts%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B1.png">
+<meta property="og:image" content="/多线程/Users/admin/blog/source_posts/多线程/多线程1.png">
 <meta property="og:image" content="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B2.png">
 <meta property="og:image" content="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B3.png">
 <meta property="article:published_time" content="2020-09-23T11:54:52.000Z">
-<meta property="article:modified_time" content="2020-09-24T10:27:34.648Z">
+<meta property="article:modified_time" content="2020-09-24T10:43:34.795Z">
 <meta property="article:author" content="Waboku">
 <meta property="article:tag" content="Java核心类库">
 <meta name="twitter:card" content="summary">
@@ -203,6 +205,8 @@
 <h2 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h2><p>并发：指两个或多个事件在同一个时间段内发生<br>并行：指两个或多个事件在同一时刻发生（同时发生）</p>
 <h3 id="多线程可以提高cpu的使用效率，并不能提高运行速度"><a href="#多线程可以提高cpu的使用效率，并不能提高运行速度" class="headerlink" title="多线程可以提高cpu的使用效率，并不能提高运行速度"></a>多线程可以提高cpu的使用效率，并不能提高运行速度</h3><h1 id="三种多线程实现方式"><a href="#三种多线程实现方式" class="headerlink" title="三种多线程实现方式"></a>三种多线程实现方式</h1><h3 id="1-继承Thread类"><a href="#1-继承Thread类" class="headerlink" title="1.继承Thread类"></a>1.继承Thread类</h3><p>1）自定义一个类，继承java.lang包下的Thread类<br>2）重写run方法<br>3）将要在线程中执行的代码编写在run方法中<br>4）创建上面自定义类的对象<br>5）调用start方法启动线程</p>
 <p><img src="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B1.png" alt="多线程1"></p>
+<p><img src="/多线程/_posts%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B1.png" alt="多线程1"></p>
+<p><img src="/多线程/Users\admin\blog\source_posts\多线程\多线程1.png" alt="多线程1"></p>
 <h2 id="2-实现Runnable接口"><a href="#2-实现Runnable接口" class="headerlink" title="2.实现Runnable接口"></a>2.实现Runnable接口</h2><p>1）自定义一个类实现java.lang包下的Runnable接口<br>2）重写run方法<br>3）将要在线程中执行的代码编写在run方法中<br>4）创建上面自定义类的对象<br>5）创建Thread对象并将上面自定义类的对象作为参数传递给Thread的构造方法<br>6）调用start方法启动线程</p>
 <p><img src="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B2.png" alt="多线程2"></p>
 <h2 id="3-实现Callable接口，使用线程池"><a href="#3-实现Callable接口，使用线程池" class="headerlink" title="3.实现Callable接口，使用线程池"></a>3.实现Callable接口，使用线程池</h2><p>1）自定义一个类实现java.util.concurrent包下的Callable接口<br>2）重写call方法<br>3）将要在线程中执行的代码编写在call方法中<br>4）创建ExecutorService线程池<br>5）将自定义类的对象放入线程池中<br>6）从线程池中获取线程及返回结果</p>
@@ -339,6 +343,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="2020/09/29/JSON/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JSON解析与语法
+        
+      </div>
+    </a>
   
   
     <a href="2020/09/17/回溯算法/" id="article-nav-older" class="article-nav-link-wrap">
@@ -477,6 +490,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java核心类库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">java核心类库</a>
               </li>
             
             <div class="clearfix"></div>
