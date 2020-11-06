@@ -152,6 +152,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-注解，枚举和反射笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2020/11/06/注解，枚举和反射笔记/">&#39;注解，枚举和反射笔记&#39;</a>
+    </h1>
+  
+
+        
+        <a href="2020/11/06/注解，枚举和反射笔记/" class="archive-article-date">
+  	<time datetime="2020-11-06T07:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1、枚举"><a href="#1、枚举" class="headerlink" title="1、枚举"></a>1、枚举</h1><h3 id="1-1、简介"><a href="#1-1、简介" class="headerlink" title="1.1、简介"></a>1.1、简介</h3><p>JDK1.5引入了新的类型——枚举。 在JDK1.5 之前，我们定义常量都是： public static fianl…. 。很难管理。 枚举，可以把相关的常量分组到一个枚举类型里，而且枚举提供了比常量更多的方法。</p>
+<h3 id="1-2、定义格式"><a href="#1-2、定义格式" class="headerlink" title="1.2、定义格式"></a>1.2、定义格式</h3><p>权限修饰符 enum 枚举名称 { 实例1,实例2，实例3，实例4; }</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">Level</span> </span>&#123;</span><br><span class="line"> 	 LOW(<span class="number">30</span>), MEDIUM(<span class="number">15</span>), HIGH(<span class="number">7</span>), URGENT(<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> levelValue;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">private</span> <span class="title">Level</span><span class="params">(<span class="keyword">int</span> levelValue)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.levelValue = levelValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLevelValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> levelValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.3、枚举类的主要方法 </p>
+<p><img src="/注解，枚举和反射笔记/Users\admin\blog\source_posts\注解，枚举和反射笔记\1.png" alt="1"></p>
+<p><img src="/注解，枚举和反射笔记/%5Cassets%5CblogImg%5Cavatar.jpg"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2020/11/06/注解，枚举和反射笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-XML与JSON笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -193,8 +262,8 @@
 <p>注释结束:  –&gt;</p>
 <font color="blue"> 
 
-<p>   注释开始:  <!--
-  注释结束:  --></p>
+
+
 <h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题 *"></a>面试题 *</h2><p><strong>问: Java中有几种XML解析方式 ? 分别是什么 ? 有什么样的优缺点 ?</strong><br>答: 四种.</p>
 <ol>
 <li><p><strong>SAX解析</strong><br> 解析方式是事件驱动机制 !<br> SAX解析器, 逐行读取XML文件解析 , 每当解析到一个标签的开始/结束/内容/属性时,触<br>发事件.<br> 我们可以编写程序在这些事件发生时, 进行相应的处理.<br> <strong>优点:</strong><br> 分析能够立即开始，而不是等待所有的数据被处理<br>   逐行加载,节省内存.有助于解析大于系统内存的文档<br>有时不必解析整个文档,它可以在某个条件得到满足时停止解析.<br> <strong>缺点:</strong></p>
@@ -226,6 +295,25 @@
 <li>使用读取工具对象, 读取XML文档的输入流 , 并得到文档对象<br> Document doc = sr.read(fis);  </li>
 <li>通过文档对象, 获取XML文档中的根元素对象<br> Element root = doc.getRootElement();</li>
 </ol>
+</li>
+</ol>
+<h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介:"></a>简介:</h3><p>JSON:  JavaScript Object Notation JS对象简谱 , 是一种轻量级的数据交换格式.</p>
+<h3 id="对象格式："><a href="#对象格式：" class="headerlink" title="对象格式："></a>对象格式：</h3><p>JSON:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        <span class="attr">&quot;name&quot;</span>:<span class="string">&quot;张三&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;age&quot;</span>:<span class="number">18</span>,</span><br><span class="line">        <span class="attr">&quot;pengyou&quot;</span>:[<span class="string">&quot;李四&quot;</span>,<span class="string">&quot;王二&quot;</span>,<span class="string">&quot;麻子&quot;</span>,&#123;</span><br><span class="line">              <span class="attr">&quot;name&quot;</span>:<span class="string">&quot;野马老师&quot;</span>,</span><br><span class="line">              <span class="attr">&quot;info&quot;</span>:<span class="string">&quot;像匹野马一样狂奔在技术钻研的道路上&quot;</span></span><br><span class="line">           &#125;],</span><br><span class="line">        <span class="attr">&quot;heihei&quot;</span>:&#123;</span><br><span class="line">          <span class="attr">&quot;name&quot;</span>:<span class="string">&quot;大长刀&quot;</span>,</span><br><span class="line">          <span class="attr">&quot;length&quot;</span>:<span class="string">&quot;40m&quot;</span></span><br><span class="line">       &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Gson"><a href="#Gson" class="headerlink" title="Gson"></a>Gson</h2><h3 id="将对象转换为JSON字符串"><a href="#将对象转换为JSON字符串" class="headerlink" title="将对象转换为JSON字符串"></a>将对象转换为JSON字符串</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">转换JSON字符串的步骤:</span><br><span class="line"></span><br><span class="line">    <span class="number">1.</span>  引入JAR包</span><br><span class="line">    <span class="number">2.</span>  在需要转换JSON字符串的位置编写如下代码即可:</span><br><span class="line"></span><br><span class="line">    String json = <span class="keyword">new</span> Gson().toJSON(要转换的对象);</span><br><span class="line"></span><br><span class="line">案例:</span><br><span class="line">  Book b = BookDao.find();</span><br><span class="line">  String json = <span class="keyword">new</span> Gson().toJson(b);</span><br><span class="line">  System.out.println(json);</span><br></pre></td></tr></table></figure>
+
+<h3 id="将JSON字符串转换为对象"><a href="#将JSON字符串转换为对象" class="headerlink" title="将JSON字符串转换为对象"></a>将JSON字符串转换为对象</h3><ol>
+<li><pre><code class="java">1.  引入JAR包
+  2.  在需要转换Java对象的位置, 编写如下代码:
+
+    对象 = new Gson().fromJson(JSON字符串,对象类型.class);
+
+案例:
+  String json = &quot;&#123;\&quot;id\&quot;:1,\&quot;name\&quot;:\&quot;金苹果\&quot;,\&quot;author\&quot;:\&quot;张三
+\&quot;,\&quot;info\&quot;:\&quot;嘿嘿嘿嘿嘿嘿\&quot;,\&quot;price\&quot;:198.0&#125;&quot;;
+  Book book = new Gson().fromJson(json, Book.class);
+  System.out.println(book);</code></pre>
 </li>
 </ol>
 </font>
@@ -832,19 +920,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">day1</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">week1</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java核心类库</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">java核心类库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">day1</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">week1</a>
               </li>
             
             <div class="clearfix"></div>
