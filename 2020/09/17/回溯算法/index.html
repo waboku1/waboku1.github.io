@@ -15,20 +15,19 @@
 <meta property="og:site_name" content="Waboku的博客">
 <meta property="og:description" content="经典例题：给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。 candidates 中的数字可以无限制重复被选取。 说明： 所有数字（包括 target）都是正整数。解集不能包含重复的组合。 示例 1： 123456输入：candidates &#x3D; [2,3,6,7], target &amp;#x">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="/回溯算法/%E6%88%AA%E5%9B%BE1.jpg">
-<meta property="og:image" content="/回溯算法/%E6%88%AA%E5%9B%BE2.png">
-<meta property="og:image" content="/回溯算法/%E6%88%AA%E5%9B%BE3.png">
-<meta property="og:image" content="/回溯算法/%E6%88%AA%E5%9B%BE4.png">
-<meta property="og:image" content="/回溯算法/%E6%88%AA%E5%9B%BE5.png">
-<meta property="og:image" content="/回溯算法/%E6%88%AA%E5%9B%BE6.png">
-<meta property="og:image" content="/回溯算法/%E6%88%AA%E5%9B%BE7.png">
-<meta property="og:image" content="/回溯算法/%E6%88%AA%E5%9B%BE8.png">
+<meta property="og:image" content="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE2.png">
+<meta property="og:image" content="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE3.png">
+<meta property="og:image" content="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE4.png">
+<meta property="og:image" content="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE5.png">
+<meta property="og:image" content="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE6.png">
+<meta property="og:image" content="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE7.png">
+<meta property="og:image" content="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE8.png">
 <meta property="article:published_time" content="2020-09-17T10:18:55.000Z">
-<meta property="article:modified_time" content="2020-09-21T09:43:00.040Z">
+<meta property="article:modified_time" content="2020-11-06T09:23:21.867Z">
 <meta property="article:author" content="Waboku">
 <meta property="article:tag" content="week1">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="/回溯算法/%E6%88%AA%E5%9B%BE1.jpg">
+<meta name="twitter:image" content="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE2.png">
   
     <link rel="alternative" href="/atom.xml" title="Waboku的博客" type="application/atom+xml">
   
@@ -195,18 +194,18 @@
 <h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>面对这种需要进行大量无明显规律的组合一般的循环遍历的效果极差，</p>
 <p>这类问题我们可以使用for循环+递归实现深度优先遍历</p>
 <p>下面用图示展示回溯和剪枝的整个过程</p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE1.jpg" alt="截图1"></p>
+<p><strong></strong></p>
 <p>利用减法再进入递归，当target被减小于0时该路径结束，因为数组经过了排序，最小的元素都无法满足，之后的3，6，7不必在尝试，直接返回上一级递归，这就是剪枝的操作。</p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE2.png" alt="截图2"></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE2.png" class title="enum"></strong></p>
 <p>返回上一级后继续进行for循环的遍历，3被放到该路径中最后一位，target恰好为0，得到了第一个解[2,2,3],同样因为剪枝，6，7不必再尝试。</p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE3.png" alt="截图3"></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE3.png" class title="enum"></strong></p>
 <p>返回上一级后target被减后仍大于0，继续进入循环，但为避免重复解出现，之后的元素只能是3以后的元素，相减后小于0，返回上一级递归</p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE4.png" alt="截图4"></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE4.png" class title="enum"></strong></p>
 <p>将下一个元素减后target小于0.返回上一级递归</p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE5.png" alt="截图5"></p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE6.png" alt="截图6"></p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE7.png" alt="截图7"></p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE8.png" alt="截图8"></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE5.png" class title="enum"></strong></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE6.png" class title="enum"></strong></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE7.png" class title="enum"></strong></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE8.png" class title="enum"></strong></p>
 <p>target等于0，获得第二个解</p>
 <p>至此，所有不重复的路径全部走完，整个遍历结束。</p>
 <p>参考代码：</p>
@@ -453,11 +452,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java核心类库</a>
+                <a href="javascript:void(0)" class="js-tag color4">java核心类库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">java核心类库</a>
+                <a href="javascript:void(0)" class="js-tag color1">week1</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,7 +464,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">week1</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java核心类库</a>
               </li>
             
             <div class="clearfix"></div>

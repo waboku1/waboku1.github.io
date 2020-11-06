@@ -176,9 +176,102 @@
 <h3 id="1-2、定义格式"><a href="#1-2、定义格式" class="headerlink" title="1.2、定义格式"></a>1.2、定义格式</h3><p>权限修饰符 enum 枚举名称 { 实例1,实例2，实例3，实例4; }</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">Level</span> </span>&#123;</span><br><span class="line"> 	 LOW(<span class="number">30</span>), MEDIUM(<span class="number">15</span>), HIGH(<span class="number">7</span>), URGENT(<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> levelValue;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">private</span> <span class="title">Level</span><span class="params">(<span class="keyword">int</span> levelValue)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.levelValue = levelValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLevelValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> levelValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>1.3、枚举类的主要方法 </p>
-<p><img src="/注解，枚举和反射笔记/Users\admin\blog\source_posts\注解，枚举和反射笔记\1.png" alt="1"></p>
-<p><img src="/注解，枚举和反射笔记/%5Cassets%5CblogImg%5Cavatar.jpg"></p>
+<h3 id="1-3、枚举类的主要方法"><a href="#1-3、枚举类的主要方法" class="headerlink" title="1.3、枚举类的主要方法"></a>1.3、枚举类的主要方法</h3><p><strong><img src="/2020/11/06/%E6%B3%A8%E8%A7%A3%EF%BC%8C%E6%9E%9A%E4%B8%BE%E5%92%8C%E5%8F%8D%E5%B0%84%E7%AC%94%E8%AE%B0/1.png" class title="enum"></strong></p>
+<h3 id="1-4、注意事项"><a href="#1-4、注意事项" class="headerlink" title="1.4、注意事项"></a>1.4、注意事项</h3><ul>
+<li>一旦定义了枚举，最好不要妄图修改里面的值，除非修改是必要的。</li>
+<li>枚举类默认继承的是java.lang.Enum类而不是Object类</li>
+<li>枚举类不能有子类，因为其枚举类默认被final修饰</li>
+<li>只能有private构造方法</li>
+<li>switch中使用枚举时，直接使用常量名，不用携带类名</li>
+<li>不能定义name属性，因为自带name属性</li>
+<li>不要为枚举类中的属性提供set方法，不符合枚举最初设计初衷。</li>
+</ul>
+<h1 id="2、注解"><a href="#2、注解" class="headerlink" title="2、注解"></a>2、注解</h1><h3 id="2-1、简介"><a href="#2-1、简介" class="headerlink" title="2.1、简介"></a>2.1、简介</h3><p>Java 注解（Annotation）又称 Java 标注，是 JDK5.0 引入的一种注释机制。</p>
+<p>Java 语言中的类、方法、变量、参数和包等都可以被标注。和注释不同，Java 标注可以通过反射获取标<br>注内容。在编译器生成类文件时，标注可以被嵌入到字节码中。Java 虚拟机可以保留标注内容，在运行<br>时可以获取到标注内容 。 当然它也支持自定义 Java 标注。</p>
+<h4 id="主要用于："><a href="#主要用于：" class="headerlink" title="主要用于："></a>主要用于：</h4><ul>
+<li>编译格式检查</li>
+<li>反射中解析</li>
+<li>生成帮助文档</li>
+<li>跟踪代码依赖</li>
+</ul>
+<h3 id="2-2、内置注解"><a href="#2-2、内置注解" class="headerlink" title="2.2、内置注解"></a>2.2、内置注解</h3><p>@Override ： 重写 *<br>定义在java.lang.Override</p>
+<p>@Deprecated：废弃 *<br>定义在java.lang.Deprecated</p>
+<p>@SafeVarargs<br>Java 7 开始支持，忽略任何使用参数为泛型变量的方法或构造函数调用产生的警告。</p>
+<p>@FunctionalInterface： 函数式接口 *<br>Java 8 开始支持，标识一个匿名函数或函数式接口。</p>
+<p>@Repeatable：标识某注解可以在同一个声明上使用多次<br>Java 8 开始支持，标识某注解可以在同一个声明上使用多次。</p>
+<p>SuppressWarnings：抑制编译时的警告信息。 *<br>定义在java.lang.SuppressWarnings<br>三种使用方式</p>
+<ol>
+<li>@SuppressWarnings(“unchecked”) [^ 抑制单类型的警告]</li>
+<li>@SuppressWarnings(“unchecked”,”rawtypes”) [^ 抑制多类型的警告]</li>
+<li>@SuppressWarnings(“all”) [^ 抑制所有类型的警告]</li>
+</ol>
+<h3 id="2-3、元注解"><a href="#2-3、元注解" class="headerlink" title="2.3、元注解"></a>2.3、元注解</h3><h5 id="2-3-1、简介"><a href="#2-3-1、简介" class="headerlink" title="2.3.1、简介"></a>2.3.1、简介</h5><p>作用在其他注解的注解</p>
+<h5 id="2-3-2、有哪些？"><a href="#2-3-2、有哪些？" class="headerlink" title="2.3.2、有哪些？"></a>2.3.2、有哪些？</h5><p>@Retention - 标识这个注解怎么保存，是只在代码中，还是编入class文件中，或者是在运行时可<br>以通过反射访问。<br>@Documented - 标记这些注解是否包含在用户文档中 javadoc。<br>@Target - 标记这个注解应该是哪种 Java 成员。<br>@Inherited - 标记这个注解是自动继承的</p>
+<ol>
+<li><p>子类会继承父类使用的注解中被@Inherited修饰的注解</p>
+</li>
+<li><p>接口继承关系中，子接口不会继承父接口中的任何注解，不管父接口中使用的注解有没有<br>被@Inherited修饰</p>
+</li>
+<li><p>类实现接口时不会继承任何接口中定义的注解</p>
+</li>
+</ol>
+<h3 id="2-4、自定义注解"><a href="#2-4、自定义注解" class="headerlink" title="2.4、自定义注解"></a>2.4、自定义注解</h3><h5 id="2-4-1、注解架构"><a href="#2-4-1、注解架构" class="headerlink" title="2.4.1、注解架构"></a>2.4.1、注解架构</h5><p><strong>(01) Annotation与RetentionPolicy 与ElementType 。</strong><br>每 1 个 Annotation 对象，都会有唯一的 RetentionPolicy 属性；至于 ElementType 属性，则有 1~n<br>个。<br>**(02) ElementType(注解的用途类型)**</p>
+<p>“每 1 个 Annotation” 都与 “1～n 个 ElementType” 关联。当 Annotation 与某个 ElementType 关联<br>时，就意味着：Annotation有了某种用途。例如，若一个 Annotation 对象是 METHOD 类型，则该<br>Annotation 只能用来修饰方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.lang.annotation;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">ElementType</span> </span>&#123;</span><br><span class="line">  TYPE,        <span class="comment">/* 类、接口（包括注释类型）或枚举声明 */</span></span><br><span class="line">  FIELD,        <span class="comment">/* 字段声明（包括枚举常量） */</span></span><br><span class="line">  METHOD,       <span class="comment">/* 方法声明 */</span></span><br><span class="line">  PARAMETER,      <span class="comment">/* 参数声明 */</span></span><br><span class="line">  CONSTRUCTOR,     <span class="comment">/* 构造方法声明 */</span></span><br><span class="line">  LOCAL_VARIABLE,   <span class="comment">/* 局部变量声明 */</span></span><br><span class="line">  ANNOTATION_TYPE,   <span class="comment">/* 注释类型声明 */</span></span><br><span class="line">  PACKAGE       <span class="comment">/* 包声明 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>(03) RetentionPolicy（注解作用域策略）。</strong><br>“每 1 个 Annotation” 都与 “1 个 RetentionPolicy” 关联。</p>
+<p>a) 若 Annotation 的类型为 SOURCE，则意味着：Annotation 仅存在于编译器处理期间，编译器<br>处理完之后，该 Annotation 就没用了。 例如，” @Override” 标志就是一个 Annotation。当它修<br>饰一个方法的时候，就意味着该方法覆盖父类的方法；并且在编译期间会进行语法检查！编译器处<br>理完后，”@Override” 就没有任何作用了。</p>
+<p>b) 若 Annotation 的类型为 CLASS，则意味着：编译器将 Annotation 存储于类对应的 .class 文件<br>中，它是 Annotation 的默认行为。</p>
+<p>c) 若 Annotation 的类型为 RUNTIME，则意味着：编译器将 Annotation 存储于 class 文件中，并<br>且可由JVM读入。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.lang.annotation;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">RetentionPolicy</span> </span>&#123;</span><br><span class="line">  SOURCE,       <span class="comment">/* Annotation信息仅存在于编译器处理期间，编译器处理完之后就没有该</span></span><br><span class="line"><span class="comment">Annotation信息了 */</span></span><br><span class="line">  CLASS,       <span class="comment">/* 编译器将Annotation存储于类对应的.class文件中。默认行为 */</span></span><br><span class="line">  RUNTIME       <span class="comment">/* 编译器将Annotation存储于class文件中，并且可由JVM读入 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-2、注意事项"><a href="#2-4-2、注意事项" class="headerlink" title="2.4.2、注意事项"></a>2.4.2、注意事项</h3><ol>
+<li><p>定义的注解，自动继承了java.lang,annotation.Annotation接口</p>
+</li>
+<li><p>注解中的每一个方法，实际是声明的注解配置参数</p>
+<p>​    方法的名称就是 配置参数的名称</p>
+<p>​    方法的返回值类型，就是配置参数的类型。只能是：基本类型/Class/String/enum</p>
+</li>
+<li><p>可以通过default来声明参数的默认值</p>
+</li>
+<li><p>如果只有一个参数成员，一般参数名为value</p>
+</li>
+<li><p>注解元素必须要有值，我们定义注解元素时，经常使用空字符串、0作为默认值。</p>
+</li>
+</ol>
+<h3 id="2-4-3、案例"><a href="#2-4-3、案例" class="headerlink" title="2.4.3、案例"></a>2.4.3、案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation1 &#123;</span><br><span class="line">  参数类型 参数名() <span class="keyword">default</span> 默认值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的作用是定义一个 Annotation，我们可以在代码中通过 “@MyAnnotation1” 来使用它。<br>@Documented, @Target, @Retention, @interface 都是来修饰 MyAnnotation1 的。含义：<br>**(01) @interface**<br>使用 @interface 定义注解时，意味着它实现了 java.lang.annotation.Annotation 接口，即该注解就是<br>一个Annotation。<br>定义 Annotation 时，**@interface 是必须的。**<br>注意：它和我们通常的 implemented 实现接口的方法不同。Annotation 接口的实现细节都由编译器完<br>成。通过 @interface 定义注解后，该注解不能继承其他的注解或接口。<br>**(02) @Documented**<br>类和方法的 Annotation 在缺省情况下是不出现在 javadoc 中的。如果使用 @Documented 修饰该<br>Annotation，则表示它可以出现在 javadoc 中。<br>定义 Annotation 时，@Documented 可有可无；若没有定义，则 Annotation 不会出现在 javadoc<br>中。<br>**(03) @Target(ElementType.TYPE)**<br>前面我们说过，ElementType 是 Annotation 的类型属性。而 @Target 的作用，就是来指定<br>Annotation 的类型属性。<br>@Target(ElementType.TYPE) 的意思就是指定该 Annotation 的类型是 ElementType.TYPE。这就意味<br>着，MyAnnotation1 是来修饰”类、接口（包括注释类型）或枚举声明”的注解。<br>定义 Annotation 时，@Target 可有可无。若有 @Target，则该 Annotation 只能用于它所指定的地<br>方；若没有 @Target，则该 Annotation 可以用于任何地方。<br>**(04) @Retention(RetentionPolicy.RUNTIME)**<br>前面我们说过，RetentionPolicy 是 Annotation 的策略属性，而 @Retention 的作用，就是指定<br>Annotation 的策略属性。<br>@Retention(RetentionPolicy.RUNTIME) 的意思就是指定该 Annotation 的策略是<br>RetentionPolicy.RUNTIME。这就意味着，编译器会将该 Annotation 信息保留在 .class 文件中，并且<br>能被虚拟机读取。<br>定义 Annotation 时，@Retention 可有可无。若没有 @Retention，则默认是<br>RetentionPolicy.CLASS。</p>
+<h1 id="3、反射"><a href="#3、反射" class="headerlink" title="3、反射"></a>3、反射</h1><h3 id="3-1、概述"><a href="#3-1、概述" class="headerlink" title="3.1、概述"></a>3.1、概述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JAVA反射机制是在运行状态中，获取任意一个类的结构 , 创建对象 , 得到方法，执行方法 , 属性 !；</span><br><span class="line">这种在运行状态动态获取信息以及动态调用对象方法的功能被称为java语言的反射机制。</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2、所有类型的Class对象"><a href="#3-2、所有类型的Class对象" class="headerlink" title="3.2、所有类型的Class对象"></a>3.2、所有类型的Class对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">要想了解一个类,必须先要获取到该类的字节码文件对象.</span><br><span class="line">在Java中，每一个字节码文件，被夹在到内存后，都存在一个对应的Class类型的对象</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3、得到Class的几种方式"><a href="#3-3、得到Class的几种方式" class="headerlink" title="3.3、得到Class的几种方式"></a>3.3、得到Class的几种方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1. 如果在编写代码时, 指导类的名称, 且类已经存在, 可以通过</span><br><span class="line">   包名.类名.class 得到一个类的 类对象</span><br><span class="line"></span><br><span class="line"> 2. 如果拥有类的对象, 可以通过 </span><br><span class="line">    Class 对象.getClass() 得到一个类的 类对象</span><br><span class="line"></span><br><span class="line"> 3. 如果在编写代码时, 知道类的名称 , 可以通过</span><br><span class="line">    Class.forName(包名+类名): 得到一个类的 类对象</span><br><span class="line"></span><br><span class="line">    上述的三种方式, 在调用时, 如果类在内存中不存在, 则会加载到内存 ! 如果类已经在内存中存在, 不</span><br><span class="line">    会重复加载, 而是重复利用 !</span><br><span class="line">    (一个class文件 在内存中不会存在两个类对象 )</span><br><span class="line"></span><br><span class="line">    特殊的类对象</span><br><span class="line">     基本数据类型的类对象: </span><br><span class="line">       基本数据类型.clss</span><br><span class="line">       包装类.type</span><br><span class="line">     基本数据类型包装类对象:</span><br><span class="line">       包装类.class</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4、获取Constructor"><a href="#3-4、获取Constructor" class="headerlink" title="3.4、获取Constructor"></a>3.4、获取Constructor</h3><p>3.4.1、通过class对象 获取一个类的构造方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1. 通过指定的参数类型, 获取指定的单个构造方法</span><br><span class="line">   getConstructor(参数类型的class对象数组)</span><br><span class="line">    例如:</span><br><span class="line">   构造方法如下: Person(String name,int age)</span><br><span class="line">   得到这个构造方法的代码如下:</span><br><span class="line">   Constructor c &#x3D; p.getClass().getConstructor(String.class,int.class);</span><br><span class="line">2. 获取构造方法数组</span><br><span class="line">   getConstructors();</span><br><span class="line">3. 获取所有权限的单个构造方法</span><br><span class="line">   getDeclaredConstructor(参数类型的class对象数组)</span><br><span class="line">4. 获取所有权限的构造方法数组</span><br><span class="line">   getDeclaredConstructors();</span><br></pre></td></tr></table></figure>
+
+<p>3.4.2、Constructor 创建对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">常用方法:</span><br><span class="line"> newInstance(Object... para)</span><br><span class="line">调用这个构造方法, 把对应的对象创建出来</span><br><span class="line"> 参数: 是一个Object类型可变参数, 传递的参数顺序 必须匹配构造方法中形式参数列表的顺</span><br><span class="line">序!</span><br><span class="line"></span><br><span class="line"> setAccessible(boolean flag)</span><br><span class="line">   如果flag为true 则表示忽略访问权限检查 !(可以访问任何权限的方法)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5、获取Method"><a href="#3-5、获取Method" class="headerlink" title="3.5、获取Method"></a>3.5、获取Method</h3><p>3.5.1、通过class对象 获取一个类的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. getMethod(String methodName , class.. clss)</span><br><span class="line"> 根据参数列表的类型和方法名, 得到一个方法(public修饰的)</span><br><span class="line">2. getMethods();</span><br><span class="line"> 得到一个类的所有方法 (public修饰的)</span><br><span class="line">3. getDeclaredMethod(String methodName , class.. clss)</span><br><span class="line"> 根据参数列表的类型和方法名, 得到一个方法(除继承以外所有的:包含私有, 共有, 保护, 默认)</span><br><span class="line">4. getDeclaredMethods();</span><br><span class="line"> 得到一个类的所有方法 (除继承以外所有的:包含私有, 共有, 保护, 默认)</span><br></pre></td></tr></table></figure>
+
+<p>3.5.2、Method 执行方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">invoke(Object o,Object... para) :</span><br><span class="line"> 调用方法 ,</span><br><span class="line"> 参数1. 要调用方法的对象</span><br><span class="line"> 参数2. 要传递的参数列表</span><br><span class="line">getName()</span><br><span class="line"> 获取方法的方法名称</span><br><span class="line">setAccessible(boolean flag)</span><br><span class="line">   如果flag为true 则表示忽略访问权限检查 !(可以访问任何权限的方法)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6、获取Field"><a href="#3-6、获取Field" class="headerlink" title="3.6、获取Field"></a>3.6、获取Field</h3><p>3.6.1、通过class对象 获取一个类的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. getDeclaredField(String filedName)</span><br><span class="line">   根据属性的名称, 获取一个属性对象 (所有属性)</span><br><span class="line">2. getDeclaredFields()</span><br><span class="line">   获取所有属性</span><br><span class="line">3. getField(String filedName)</span><br><span class="line">   根据属性的名称, 获取一个属性对象 (public属性)</span><br><span class="line">4. getFields()</span><br><span class="line">   获取所有属性 (public)</span><br></pre></td></tr></table></figure>
+
+<p>3.6.2、Field 属性的对象类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">常用方法:</span><br><span class="line"> 1. get(Object o );</span><br><span class="line">   参数: 要获取属性的对象</span><br><span class="line">   获取指定对象的此属性值</span><br><span class="line"> 2. set(Object o , Object value);</span><br><span class="line">   参数1. 要设置属性值的 对象</span><br><span class="line">   参数2. 要设置的值</span><br><span class="line">   设置指定对象的属性的值</span><br><span class="line"> 3. getName()</span><br><span class="line">   获取属性的名称</span><br><span class="line"> 4. setAccessible(boolean flag)</span><br><span class="line">   如果flag为true 则表示忽略访问权限检查 !(可以访问任何权限的属性)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-8、获取注解信息"><a href="#3-8、获取注解信息" class="headerlink" title="3.8、获取注解信息"></a>3.8、获取注解信息</h3><p>3.8.1、获取类/属性/方法的全部注解对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Annotation[] annotations01 = Class/Field/Method.getAnnotations();</span><br><span class="line"><span class="keyword">for</span> (Annotation annotation : annotations01) &#123;</span><br><span class="line">	System.out.println(annotation);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.8.2、根据类型获取类/属性/方法的注解对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注解类型 对象名 &#x3D; (注解类型) c.getAnnotation(注解类型.class);</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -369,79 +462,6 @@
 
 
   
-    <article id="post-JSON" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2020/09/29/JSON/">JSON解析与语法</a>
-    </h1>
-  
-
-        
-        <a href="2020/09/29/JSON/" class="archive-article-date">
-  	<time datetime="2020-09-29T10:46:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java核心类库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2020/09/29/JSON/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-多线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -485,13 +505,11 @@
 <p>异步：同时执行，效率高，线程不安全</p>
 <h2 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h2><p>并发：指两个或多个事件在同一个时间段内发生<br>并行：指两个或多个事件在同一时刻发生（同时发生）</p>
 <h3 id="多线程可以提高cpu的使用效率，并不能提高运行速度"><a href="#多线程可以提高cpu的使用效率，并不能提高运行速度" class="headerlink" title="多线程可以提高cpu的使用效率，并不能提高运行速度"></a>多线程可以提高cpu的使用效率，并不能提高运行速度</h3><h1 id="三种多线程实现方式"><a href="#三种多线程实现方式" class="headerlink" title="三种多线程实现方式"></a>三种多线程实现方式</h1><h3 id="1-继承Thread类"><a href="#1-继承Thread类" class="headerlink" title="1.继承Thread类"></a>1.继承Thread类</h3><p>1）自定义一个类，继承java.lang包下的Thread类<br>2）重写run方法<br>3）将要在线程中执行的代码编写在run方法中<br>4）创建上面自定义类的对象<br>5）调用start方法启动线程</p>
-<p><img src="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B1.png" alt="多线程1"></p>
-<p><img src="/多线程/_posts%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B%5C%E5%A4%9A%E7%BA%BF%E7%A8%8B1.png" alt="多线程1"></p>
-<p><img src="/多线程/Users\admin\blog\source_posts\多线程\多线程1.png" alt="多线程1"></p>
+<p><strong><img src="/2020/09/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B1.png" class title="enum"></strong></p>
 <h2 id="2-实现Runnable接口"><a href="#2-实现Runnable接口" class="headerlink" title="2.实现Runnable接口"></a>2.实现Runnable接口</h2><p>1）自定义一个类实现java.lang包下的Runnable接口<br>2）重写run方法<br>3）将要在线程中执行的代码编写在run方法中<br>4）创建上面自定义类的对象<br>5）创建Thread对象并将上面自定义类的对象作为参数传递给Thread的构造方法<br>6）调用start方法启动线程</p>
-<p><img src="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B2.png" alt="多线程2"></p>
+<p><strong><img src="/2020/09/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B2.png" class title="enum"></strong></p>
 <h2 id="3-实现Callable接口，使用线程池"><a href="#3-实现Callable接口，使用线程池" class="headerlink" title="3.实现Callable接口，使用线程池"></a>3.实现Callable接口，使用线程池</h2><p>1）自定义一个类实现java.util.concurrent包下的Callable接口<br>2）重写call方法<br>3）将要在线程中执行的代码编写在call方法中<br>4）创建ExecutorService线程池<br>5）将自定义类的对象放入线程池中<br>6）从线程池中获取线程及返回结果</p>
-<p><img src="/多线程/%E5%A4%9A%E7%BA%BF%E7%A8%8B3.png" alt="多线程3"></p>
+<p><strong><img src="/2020/09/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B3.png" class title="enum"></strong></p>
 <h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><p>线程池是初始化一个多线程应用程序过程中创建一个<strong>线程集合</strong>，即一次创建多个线程，然后在需要执行新的任务时直接去这个线程集合中获取，而不是重新创建一个线程。任务执行结束后，线程放回到池子中等待下一次的分配。</p>
 <p><strong>线程池的作用</strong></p>
 <p>解决创建单个线程耗费时间和资源的问题。</p>
@@ -605,18 +623,18 @@
 <h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><p>面对这种需要进行大量无明显规律的组合一般的循环遍历的效果极差，</p>
 <p>这类问题我们可以使用for循环+递归实现深度优先遍历</p>
 <p>下面用图示展示回溯和剪枝的整个过程</p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE1.jpg" alt="截图1"></p>
+<p><strong></strong></p>
 <p>利用减法再进入递归，当target被减小于0时该路径结束，因为数组经过了排序，最小的元素都无法满足，之后的3，6，7不必在尝试，直接返回上一级递归，这就是剪枝的操作。</p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE2.png" alt="截图2"></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE2.png" class title="enum"></strong></p>
 <p>返回上一级后继续进行for循环的遍历，3被放到该路径中最后一位，target恰好为0，得到了第一个解[2,2,3],同样因为剪枝，6，7不必再尝试。</p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE3.png" alt="截图3"></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE3.png" class title="enum"></strong></p>
 <p>返回上一级后target被减后仍大于0，继续进入循环，但为避免重复解出现，之后的元素只能是3以后的元素，相减后小于0，返回上一级递归</p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE4.png" alt="截图4"></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE4.png" class title="enum"></strong></p>
 <p>将下一个元素减后target小于0.返回上一级递归</p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE5.png" alt="截图5"></p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE6.png" alt="截图6"></p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE7.png" alt="截图7"></p>
-<p><img src="/回溯算法/%E6%88%AA%E5%9B%BE8.png" alt="截图8"></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE5.png" class title="enum"></strong></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE6.png" class title="enum"></strong></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE7.png" class title="enum"></strong></p>
+<p><strong><img src="/2020/09/17/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%88%AA%E5%9B%BE8.png" class title="enum"></strong></p>
 <p>target等于0，获得第二个解</p>
 <p>至此，所有不重复的路径全部走完，整个遍历结束。</p>
 <p>参考代码：</p>
@@ -920,11 +938,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java核心类库</a>
+                <a href="javascript:void(0)" class="js-tag color4">java核心类库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">java核心类库</a>
+                <a href="javascript:void(0)" class="js-tag color1">week1</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,7 +950,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">week1</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java核心类库</a>
               </li>
             
             <div class="clearfix"></div>
